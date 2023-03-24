@@ -21,9 +21,11 @@
                 <button class="btn btn-sm btn-primary" @click="refreshList()">
                     <i class="fas fa-redo"></i> Làm mới
                 </button>
-                <button class="btn btn-sm btn-success" @click="goToAddContact">
-                    <i class="fas fa-plus"></i> Thêm mới
-                </button>
+                <router-link to="/contacts/create" class="btn btn-sm btn-primary">
+                        <i class="fas fa-plus"></i> Thêm mới
+                     
+                </router-link>
+
                 <button
                     class="btn btn-sm btn-danger"
                     @click="removeAllContacts"
@@ -58,6 +60,7 @@
     import ContactCard from "@/components/ContactCard.vue";
     import InputSearch from "@/components/InputSearch.vue";
     import ContactList from "@/components/ContactList.vue";
+
     import ContactService from "@/services/contact.service.js";
 
     export default {
@@ -138,8 +141,9 @@
             },
 
             goToAddContact() {
-                this.$router.push({ name: "contact.add" });
+                this.$router.push({ name: "contact.create" });
             },
+
 
         },
         mounted() {
